@@ -1,25 +1,21 @@
-
-/**
- *
- * @author peter
- */
-public class TeleGenuis {
+public class TeleGenuisV2 {
     
     // Параметры Шахматной доски и варианты разрешенных ходов из текущей позиции коня
-    final int deskSize = 8;
+    final int deskSize = 9;
     boolean deskCell[][] = new boolean[deskSize][deskSize];
-    String deskCellColName[] = {"a", "b", "c", "d", "e", "f", "g", "h"};
-    int deskRow[] = new int[deskSize*deskSize];      //репозиторий
+    String deskCellColName[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    int deskRow[] = new int[deskSize*deskSize];
     int deskCol[] = new int[deskSize*deskSize];
-    int deskMov1[] = {-2, -1, 1, 2, 2, 1, -1, -2};			//ходы 
+    int deskMov1[] = {-2, -1, 1, 2, 2, 1, -1, -2};
     int deskMov2[] = {1, 2, 2, 1, -1, -2, -2, -1};
 
     // Начальная позиция коня и общее количество ходов..
     int i, j;
     int moveNum = 0;
+    int c = 0;
     
-    //то
-    TeleGenuis() {
+    //
+    TeleGenuisV2() {
         
     }
     
@@ -29,13 +25,14 @@ public class TeleGenuis {
     void theHamiltonCycle() {
         int a, b, e;
         /* Пометить клетку как посещенную и запомнить координаты клетки */
-        deskCell[i][j] = true;     
+        deskCell[i][j] = true;
         deskRow[moveNum] = i;
         deskCol[moveNum] = j;
         moveNum++;
+        c++;
 
         /* Проверить 8 (Буква Г) возможных перемещений коня */
-        for (a = 0; a < deskSize; a++) {                      //проходим по 
+        for (a = 0; a < deskMov1.length; a++) {
             /* Если все ходы сделаны, печатаем их */
             if (moveNum >= deskSize*deskSize) {
                 printDesk();
@@ -70,7 +67,9 @@ public class TeleGenuis {
     
     void printDesk( ) {
         int a;
-
+        
+        System.out.println(c);
+                
         for (a = 0; a < deskSize*deskSize; a++) {
             System.out.printf("%s%d ", deskCellColName[deskCol[a]], deskRow[a] + 1);
         }
@@ -82,7 +81,7 @@ public class TeleGenuis {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new TeleGenuis().theHamiltonCycle();
+        new TeleGenuisV2().theHamiltonCycle();
     }
     
 }
