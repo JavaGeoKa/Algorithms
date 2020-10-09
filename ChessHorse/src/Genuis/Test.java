@@ -1,7 +1,13 @@
-public class TeleGenuisV2 {
+package Genuis;
+
+/**
+ *
+ * @author peter
+ */
+public class Test {
     
     // Параметры Шахматной доски и варианты разрешенных ходов из текущей позиции коня
-    final int deskSize = 9;
+    final int deskSize = 8;
     boolean deskCell[][] = new boolean[deskSize][deskSize];
     String deskCellColName[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
     int deskRow[] = new int[deskSize*deskSize];
@@ -15,7 +21,7 @@ public class TeleGenuisV2 {
     int c = 0;
     
     //
-    TeleGenuisV2() {
+    Test() {
         
     }
     
@@ -31,12 +37,11 @@ public class TeleGenuisV2 {
         moveNum++;
         c++;
 
-        /* Проверить 8 (Буква Г) возможных перемещений коня */
         for (a = 0; a < deskMov1.length; a++) {
             /* Если все ходы сделаны, печатаем их */
             if (moveNum >= deskSize*deskSize) {
                 printDesk();
-                System.exit(0);
+//                System.exit(0);
             }
 
             /* Определяем колонку и строку для следующего хода */
@@ -44,15 +49,41 @@ public class TeleGenuisV2 {
             e = j + deskMov2[a];
 
             /* Проверяем, что после выполенения хода конь остается на шахматной доске */
-            if (b < 0 || b > deskSize - 1 || e < 0 || e > deskSize - 1) continue; 
-
+            if (b < 0 || b > deskSize - 1 || e < 0 || e > deskSize - 1) continue;
+            
+//            System.out.println("Avialable move - " + deskCellColName[e] + Integer.toString(b + 1));
+            
             /* Проверяем, были ли мы уже в этой клетке */
-            if (deskCell[b][e]) continue; 
-              
+            if (deskCell[b][e]) continue;
+            
             i = b; j = e;
               
             theHamiltonCycle();
-        } 
+        }
+        
+        ////============================
+        /* Проверить 8 (Буква Г) возможных перемещений коня */
+//        for (a = 0; a < deskMov1.length; a++) {
+//            /* Если все ходы сделаны, печатаем их */
+//            if (moveNum >= deskSize*deskSize) {
+//                printDesk();
+//                System.exit(0);
+//            }
+//
+//            /* Определяем колонку и строку для следующего хода */
+//            b = i + deskMov1[a];
+//            e = j + deskMov2[a];
+//
+//            /* Проверяем, что после выполенения хода конь остается на шахматной доске */
+//            if (b < 0 || b > deskSize - 1 || e < 0 || e > deskSize - 1) continue; 
+//
+//            /* Проверяем, были ли мы уже в этой клетке */
+//            if (deskCell[b][e]) continue; 
+//              
+//            i = b; j = e;
+//              
+//            theHamiltonCycle();
+//        } 
 
         /* Уменьшить счетчик ходов и попробовать сделать следующий ход */
         moveNum--;
@@ -81,7 +112,7 @@ public class TeleGenuisV2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new TeleGenuisV2().theHamiltonCycle();
+        new Test().theHamiltonCycle();
     }
     
 }

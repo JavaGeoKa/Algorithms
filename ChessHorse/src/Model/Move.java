@@ -1,3 +1,4 @@
+package Model;
 
 public class Move {
 	public int startI;

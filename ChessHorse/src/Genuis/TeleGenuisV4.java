@@ -1,3 +1,4 @@
+package Genuis;
 public class TeleGenuisV4 implements Runnable{
     //параметры потока
 	 int number;

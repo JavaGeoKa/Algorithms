@@ -1,3 +1,4 @@
+package Threads;
 
 public class MainPathThread implements Runnable{
 	// Параметры Шахматной доски и варианты разрешенных ходов из текущей позиции коня
