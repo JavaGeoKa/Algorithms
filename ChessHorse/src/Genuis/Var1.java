@@ -4,7 +4,7 @@ package Genuis;
  *
  * @author peter
  */
-public class Test {
+public class Var1 {
     
     // Параметры Шахматной доски и варианты разрешенных ходов из текущей позиции коня
     final int deskSize = 8;
@@ -21,7 +21,7 @@ public class Test {
     int c = 0;
     
     //
-    Test() {
+    Var1() {
         
     }
     
@@ -112,7 +112,7 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Test().theHamiltonCycle();
+        new Var1().theHamiltonCycle();
     }
     
 }
