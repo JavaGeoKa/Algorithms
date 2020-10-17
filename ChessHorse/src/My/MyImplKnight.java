@@ -17,7 +17,7 @@ public class MyImplKnight {
     static int deskColHelper[] = new int[deskSize*deskSize];
 
     // Начальная позиция коня и общее количество ходов..
-    int i, j;
+    static int i, j;
     int moveNum = 0;
     
     static int input = 0;
@@ -125,8 +125,11 @@ public class MyImplKnight {
       
     	MyImplKnight genuis = new MyImplKnight();
     
+//    	a1 c1 e1 g1 h3 h5 h7 f8 
+    	
     		input = 5;
     			
+    		
     		genuis.theHamiltonCycle();
     		
 		
